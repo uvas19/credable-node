@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Credible</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link href="app-content/app.css" rel="stylesheet" />
+</head>
+<body background="">
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+            <div ng-view></div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="./libs/jquery2.1.4/jquery-2.1.4.min.js"></script>-->
+<!--<script src="./libs/angular1.4.5/angular.min.js"></script>-->
+
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+
+<script src="app.js"></script>
+<script src="app-services/authentication.service.js"></script>
+<script src="app-services/flash.service.js"></script>
+
+<!-- Real user service that uses an api -->
+<script src="app-services/user.service.js"></script>
+<script src="app-services/token.service.js"></script>
+
+<!-- Fake user service for demo that uses local storage -->
+<!--<script src="app-services/user.service.local-storage.js"></script>-->
+
+<script src="home/home.controller.js"></script>
+<script src="login/login.controller.js"></script>
+<script src="register/register.controller.js"></script>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" ng-app="superbowlApp">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Superbowl</title>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <!--<link rel="stylesheet" href="./libs/bootstrap3.3.5/css/bootstrap-theme-min.css">-->
+    <!--<link rel="stylesheet" href="./libs/bootstrap3.3.5/css/bootstrap.min.css">-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<div ng-controller="MainCtrl">-->
+<!--</div>-->
+
+<!--<div ng-controller="ProductsCtrl">-->
+    <!--<div class="navbar navbar-inverse">-->
+        <!--<a class="navbar-brand" href="#">SUPERBOWL STORE</a>-->
+    <!--</div>-->
+    <!--<div class="panel panel-default row">-->
+        <!--<div class="col-xs-3">-->
+            <!--<a ng-click="selectCategory()"-->
+               <!--class="btn btn-block btn-default btn-lg">Home</a>-->
+            <!--<a ng-repeat="item in data._products | orderBy:'category' | unique:'category'"-->
+               <!--ng-click="selectCategory(item)" class=" btn btn-block btn-default btn-lg">-->
+                <!--{{item}}-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-xs-8">-->
+            <!--<div class="well" ng-repeat="item in data._products">-->
+                <!--<h3>-->
+                    <!--<strong>{{item.name}}</strong>-->
+                    <!--<span class="pull-right label label-primary">-->
+                        <!--{{item.price | currency}}-->
+                    <!--</span>-->
+                <!--</h3>-->
+                <!--<span class="lead">{{item.description}}</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+    <!--<div class="container">-->
+
+        <!--&lt;!&ndash; Info &ndash;&gt;-->
+        <!--<div class="jumbotron text-center">-->
+            <!--<h1>{{name}}<span class="label label-info">{{ agendaItems.length }}</span></h1>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash;List items&ndash;&gt;-->
+        <!--<div class="panel">-->
+            <!--<table class="table table-striped">-->
+                <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>Agenda Item</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>Description</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>Start Time</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>End Time</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>Location</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                <!--<tbody>-->
+                <!--<tr ng-repeat="item in agendaItems">-->
+                    <!--<td>{{item.item_name}}</td>-->
+                    <!--<td>{{item.description}}</td>-->
+                    <!--<td>{{item.start_time}}</td>-->
+                    <!--<td>{{item.end_time}}</td>-->
+                    <!--<td>{{item.location}}</td>-->
+
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash;create item&ndash;&gt;-->
+        <!--<div id="agenda-form" class="row">-->
+            <!--<div class="col-sm-8 col-sm-offset-2 text-center">-->
+                <!--<form>-->
+                    <!--<div class="form-group">-->
+                        <!--<label>Item Name</label>-->
+                        <!--<input type="text" class="form-control input-lg text-center"-->
+                               <!--placeholder="Insert"-->
+                               <!--ng-model="formData.text">-->
+
+                    <!--</div>-->
+                    <!--<button class="btn btn-primary btn-lg" ng-click="createAgendaItem()">Create Agenda Item</button>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="panel">-->
+
+        <!--<h3 class="panel-header">-->
+            <!--Grid Layout-->
+        <!--</h3>-->
+
+        <!--<div id="gridContainer">-->
+
+            <!--<div class="row grid-row">-->
+                <!--<div class="col-sm-3">3</div>-->
+                <!--<div class="col-sm-4">4</div>-->
+                <!--<div class="col-sm-5">5</div>-->
+            <!--</div>-->
+
+            <!--<div class="row grid-row">-->
+                <!--<div class="col-sm-6">6</div>-->
+                <!--<div class="col-sm-6">6</div>-->
+            <!--</div>-->
+
+            <!--<div class="row grid-row">-->
+                <!--<div class="col-sm-11">11</div>-->
+                <!--<div class="col-sm-1">1</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+<!--</body>-->
+
+
+<!--<script src="./libs/jquery2.1.4/jquery-2.1.4.min.js"></script>-->
+<!--<script src="./libs/angular1.4.5/angular.min.js"></script>-->
+<!--<script src="./js/filters/customFilters.js"></script>-->
+<!--<script src="./main.js"></script>-->
+<!--<script src="./js/controllers/productsCtrl.js"></script>-->
+<!--</html>-->
